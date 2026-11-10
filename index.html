@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f7f4eb">
+<!--OG-->
+<title>Undangan Walimatul Khitan</title>
+<meta name="description" content="Dengan penuh syukur, kami mengundang Anda ke acara walimatul khitan.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Undangan Walimatul Khitan">
+<meta property="og:description" content="Dengan penuh syukur, kami mengundang Anda ke acara walimatul khitan.">
+<!--/OG-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<style>
+/* ===== Design tokens ===== */
+:root{
+  --ivory:#f7f4eb;--paper:#fffdf8;--sage:#647766;--sage-dark:#3f5a4a;--sage-deep:#2c4236;--sage-light:#e6ece1;
+  --gold:#b08d52;--gold-light:#e4d4ac;--ink:#28332d;--muted:#6f7a72;--line:#e8e1d0;
+  --serif:'Playfair Display',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif;
+  --r-sm:12px;--r-md:18px;--r-lg:26px;
+  --shadow:0 10px 30px rgba(44,66,54,.08);--shadow-hover:0 16px 36px rgba(44,66,54,.13);
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+/* ===== Base ===== */
+*,*:before,*:after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:#e9e2d4;color:var(--ink);font:400 15px/1.7 var(--sans);-webkit-font-smoothing:antialiased}
+body.locked{overflow:hidden}
+img{max-width:100%;display:block}
+button,input,select,textarea{font:inherit}
+h1,h2,h3{margin:0;font-family:var(--serif);font-weight:600;line-height:1.2;color:var(--sage-dark)}
+h1,h2,.child-name{text-wrap:balance}
+h2{font-size:clamp(1.5rem,6vw,1.85rem)}
+h3{font-size:1.05rem}
+p{margin:0}
+[hidden],.hidden{display:none!important}
+.sr{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);border:0;white-space:nowrap}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+/* ===== Layout ===== */
+.wrap{max-width:430px;margin:0 auto;background:var(--paper);overflow:hidden;box-shadow:0 20px 60px rgba(44,66,54,.16)}
+.section{position:relative;padding:72px 28px;text-align:center;overflow:hidden}
+.section+.section{border-top:1px solid rgba(176,141,82,.14)}
+.section:nth-of-type(even){background:linear-gradient(180deg,#f7f4ec,#eef2ea)}
+.eyebrow{color:var(--gold);font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-bottom:10px}
+.section>.eyebrow+h2{margin-top:2px}
+.text{max-width:34ch;margin:18px auto 0;font-size:.98rem;line-height:1.85;color:var(--ink)}
+.muted{color:var(--muted);font-size:.9rem}
+.section>.muted{max-width:34ch;margin:14px auto 0}
+.ornament{display:flex;align-items:center;justify-content:center;gap:14px;margin:20px auto;color:var(--gold);font-size:1.1rem}
+.ornament:before,.ornament:after{content:"";width:48px;height:1px;background:linear-gradient(90deg,transparent,var(--gold-light))}
+.ornament:after{background:linear-gradient(270deg,transparent,var(--gold-light))}
+
+/* ===== Buttons ===== */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:12px 28px;border:0;border-radius:999px;background:linear-gradient(135deg,var(--sage-dark),var(--sage-deep));color:#fff;font-weight:600;font-size:.92rem;letter-spacing:.02em;text-decoration:none;cursor:pointer;box-shadow:0 10px 20px rgba(44,66,54,.2);transition:transform .25s var(--ease),box-shadow .25s var(--ease)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 14px 24px rgba(44,66,54,.26)}
+.btn:active{transform:translateY(0)}
+.btn:disabled{opacity:.6;cursor:wait;transform:none}
+.btn.light{background:#fff;color:var(--sage-dark);border:1px solid rgba(176,141,82,.4);box-shadow:none}
+.btn.light:hover{background:var(--ivory);box-shadow:var(--shadow)}
+
+/* ===== Cover ===== */
+.cover{position:relative;isolation:isolate;display:grid;place-items:center;min-height:100svh;padding:36px 22px calc(36px + env(safe-area-inset-bottom));text-align:center;background:radial-gradient(ellipse at 50% 12%,#fffdf8 0%,#eef1e6 45%,#cdd8c9 100%)}
+.cover:before,.cover:after{content:"";position:absolute;z-index:-1;pointer-events:none;border-radius:50% 50% 14px 14px / 28% 28% 14px 14px}
+.cover:before{inset:16px;border:1px solid rgba(255,255,255,.9)}
+.cover:after{inset:26px;border:1px solid rgba(176,141,82,.5)}
+.cover-photo{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;opacity:.3}
+.cover:has(.cover-photo[src]){background:linear-gradient(rgba(247,244,235,.4),rgba(247,244,235,.85)),#c9d4c7}
+.cover-inner{width:100%;max-width:340px;padding:44px 24px 30px;background:rgba(255,253,248,.82);border:1px solid rgba(255,255,255,.9);border-radius:200px 200px 24px 24px;box-shadow:0 18px 50px rgba(44,66,54,.14);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);animation:fadeUp .9s var(--ease) both}
+.crescent{font-size:1.7rem;color:var(--gold);margin-bottom:10px}
+.bismillah{font-family:var(--serif);font-size:.82rem;font-weight:500;color:var(--sage-dark);letter-spacing:.04em;margin-bottom:14px}
+.cover h1{font-size:clamp(2.2rem,10vw,2.9rem);margin:6px 0 0;letter-spacing:.01em}
+.cover-child{font-family:var(--serif);font-size:1.3rem;color:var(--gold);margin:4px 0 0;letter-spacing:.03em}
+.guest{margin:22px 0 22px;font-size:.84rem;color:var(--muted)}
+.guest strong{display:block;margin-top:4px;font:600 1.1rem var(--serif);color:var(--ink);overflow-wrap:anywhere}
+.cover .btn{width:100%}
+
+/* ===== Halaman 2 (pembuka + hitung mundur) ===== */
+#opening>*:not(.section-photo){position:relative;z-index:1}
+.section-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+#opening.has-photo{display:flex;flex-direction:column;justify-content:flex-end;min-height:max(118svh,1000px);background:var(--sage-deep);padding:300px 28px 56px}
+#opening.has-photo .section-photo{object-position:50% 20%}
+#opening.has-photo:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(30,46,38,0) 0%,rgba(30,46,38,0) 28%,rgba(30,46,38,.72) 55%,rgba(30,46,38,.88))}
+#opening.has-photo>*:not(.section-photo){z-index:2}
+#opening.has-photo h2,#opening.has-photo .text{color:#fff}
+#opening.has-photo .eyebrow,#opening.has-photo .ornament{color:var(--gold-light)}
+#opening .countdown{margin:34px auto 0}
+#opening.has-photo .countdown{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.28);box-shadow:none;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+#opening.has-photo .countdown .eyebrow{color:var(--gold-light)}
+#opening.has-photo .timer div{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22)}
+#opening.has-photo .countdown .muted{color:#fff}
+
+/* ===== Profile ===== */
+.photo-frame{position:relative;width:min(210px,60vw);aspect-ratio:1/1.2;margin:28px auto 4px;padding:8px;border:1px solid rgba(176,141,82,.5);border-radius:110px 110px 6px 6px}
+.photo-frame:before{content:"";position:absolute;inset:-9px;border:1px solid rgba(176,141,82,.2);border-radius:118px 118px 12px 12px;pointer-events:none}
+.photo-frame img{width:100%;height:100%;object-fit:cover;border-radius:102px 102px 2px 2px;background:var(--sage-light)}
+.photo-frame.empty{background:linear-gradient(180deg,#f3f1e6,#e6ece1)}
+.photo-frame.empty:after{content:"☾";position:absolute;inset:0;display:grid;place-items:center;font-size:2.4rem;color:var(--gold-light)}
+.profile-names{display:grid;gap:6px;margin-top:22px}
+.child-name{font-size:clamp(1.6rem,7vw,2rem);color:var(--sage-dark)}
+.parents{margin-top:6px;font-size:.95rem;font-weight:500;color:var(--sage-dark)}
+
+/* ===== Prayer ===== */
+.dua-card{position:relative;margin:28px auto 0;padding:30px 24px;background:#fff;border:1px solid rgba(176,141,82,.22);border-radius:var(--r-lg);box-shadow:var(--shadow);font:italic 500 1.02rem/1.9 var(--serif);color:var(--sage-dark)}
+
+/* ===== Events ===== */
+.events{display:grid;gap:36px;margin:30px 0 26px}
+.event{padding:0 8px}
+.event h3{font:500 1.35rem/1.3 var(--serif);color:var(--sage-dark);letter-spacing:.02em}
+.ev-date{margin-top:14px;font-size:.78rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ink)}
+.ev-time{margin-top:4px;font-size:.9rem;color:var(--muted);letter-spacing:.06em}
+.ev-line{display:block;width:36px;height:1px;margin:20px auto;background:var(--gold)}
+.ev-place{font:500 1.05rem/1.5 var(--serif);color:var(--ink)}
+.ev-addr{max-width:28ch;margin:4px auto 0;font-size:.88rem;line-height:1.7;color:var(--muted)}
+.ev-link{display:inline-block;margin-top:18px;padding-bottom:3px;border-bottom:1px solid var(--gold);color:var(--sage-dark);font-size:.82rem;font-weight:600;letter-spacing:.06em;text-decoration:none;transition:color .2s}
+.ev-link:hover{color:var(--gold)}
+.countdown{margin:8px auto 18px;padding:22px 16px;background:#fff;border:1px solid rgba(176,141,82,.2);border-radius:var(--r-lg);box-shadow:var(--shadow)}
+.timer{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px}
+.timer div{padding:12px 4px;background:linear-gradient(180deg,var(--sage-dark),var(--sage-deep));border-radius:14px;color:#fff}
+.timer b{display:block;font:600 1.45rem/1.1 var(--serif);font-variant-numeric:tabular-nums}
+.timer small{display:block;margin-top:2px;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;opacity:.8}
+
+/* ===== Gallery ===== */
+.gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:30px}
+.g-item{margin:0;padding:6px;background:#fff;border:1px solid rgba(176,141,82,.3);border-radius:4px}
+.g-item img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:2px;background:var(--sage-light);cursor:zoom-in;transition:opacity .25s}
+.g-item img:hover{opacity:.9}
+.g-item:first-child:nth-last-child(odd){grid-column:span 2}
+.g-item:first-child:nth-last-child(odd) img{aspect-ratio:1.5/1}
+.gallery .muted{grid-column:1/-1}
+
+/* ===== Forms ===== */
+.form{max-width:560px;margin:28px auto 0;padding:24px 20px;text-align:left;background:#fff;border:1px solid rgba(176,141,82,.22);border-radius:var(--r-lg);box-shadow:var(--shadow)}
+.field{margin-bottom:16px}
+.field label{display:block;margin-bottom:6px;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.field input,.field select,.field textarea{width:100%;padding:12px 14px;border:1px solid #ddd6c4;border-radius:var(--r-sm);background:#fff;color:var(--ink);transition:border-color .2s,box-shadow .2s}
+.field textarea{min-height:110px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{outline:0;border-color:var(--gold);box-shadow:0 0 0 4px rgba(176,141,82,.15)}
+.form .btn{width:100%;margin-top:4px}
+.status{min-height:1.5em;margin-top:12px;text-align:center;font-size:.9rem}
+.status.success{color:#176a45}
+.status.error{color:#a3483f}
+
+/* ===== Wishes ===== */
+.wishes{display:grid;gap:12px;max-width:560px;margin:26px auto 0;text-align:left}
+.wish{padding:16px 18px;background:#fff;border:1px solid rgba(176,141,82,.18);border-radius:var(--r-md);box-shadow:var(--shadow)}
+.wish strong{font-size:1rem;color:var(--ink)}
+.wish p{margin:8px 0;font-size:.94rem;white-space:pre-wrap;overflow-wrap:anywhere}
+.wish small{color:var(--muted);font-size:.76rem}
+.wishes>.muted,.wishes>.status{text-align:center}
+
+/* ===== Gifts / extras ===== */
+#extrasSection>div+div{margin-top:56px;padding-top:56px;border-top:1px solid rgba(176,141,82,.18)}
+.gift-list{max-width:360px;margin:22px auto 0;border-top:1px solid rgba(176,141,82,.3)}
+.gift{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px 2px;text-align:left;border-bottom:1px solid rgba(176,141,82,.3)}
+.gift div{flex:1;min-width:0}
+.gift b,.gift span,.gift small{display:block}
+.gift b{font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.gift span{margin:2px 0;font:500 1.08rem/1.5 var(--serif);letter-spacing:.05em;color:var(--ink)}
+.gift small{font-size:.78rem;color:var(--muted)}
+.copy{flex-shrink:0;padding:4px 0;border:0;border-bottom:1px solid var(--gold);background:none;color:var(--sage-dark);font-size:.78rem;font-weight:600;letter-spacing:.06em;cursor:pointer}
+.invite-list{list-style:none;margin:24px auto 0;padding:0;max-width:300px}
+.invite-list li{padding:11px 0;border-bottom:1px solid rgba(176,141,82,.25);font:500 1.02rem/1.5 var(--serif);color:var(--ink)}
+.invite-list li:first-child{border-top:1px solid rgba(176,141,82,.25)}
+#contactText,#extraInfoText{white-space:pre-line}
+
+/* ===== Closing ===== */
+.closing{background:linear-gradient(180deg,var(--sage-dark),var(--sage-deep))!important;color:#f6f2e7}
+.closing-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.14;pointer-events:none}
+.closing>*:not(.closing-photo){position:relative}
+.closing h2,.closing .text{color:#fff}
+.closing .eyebrow,.closing .ornament{color:var(--gold-light)}
+.closing .ornament:before{background:linear-gradient(90deg,transparent,rgba(255,255,255,.4))}
+.closing .ornament:after{background:linear-gradient(270deg,transparent,rgba(255,255,255,.4))}
+.closing-name{margin:22px 0 4px;font:600 1.6rem/1.3 var(--serif)}
+.foot{padding:20px 16px 32px;text-align:center;background:var(--sage-deep);color:rgba(255,255,255,.6);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase}
+
+/* ===== Music & lightbox ===== */
+.music{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:99;display:none;place-items:center;width:48px;height:48px;border:0;border-radius:50%;background:rgba(63,90,74,.92);color:#fff;box-shadow:0 10px 26px rgba(44,66,54,.3);cursor:pointer;transition:transform .25s var(--ease),background .25s}
+.music.show{display:grid}
+.music:hover{transform:scale(1.06)}
+.music.playing{background:rgba(176,141,82,.95)}
+.music span{font-size:1.2rem}
+.music.playing span{animation:spin 4s linear infinite}
+.lightbox{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(15,20,17,.9);opacity:0;pointer-events:none;transition:opacity .25s}
+.lightbox.open{opacity:1;pointer-events:auto}
+.lightbox img{max-width:min(92vw,760px);max-height:82vh;border-radius:var(--r-md);box-shadow:0 24px 56px rgba(0,0,0,.35)}
+.lightbox button{position:absolute;top:18px;right:18px;width:42px;height:42px;border:0;border-radius:50%;background:rgba(255,255,255,.18);color:#fff;font-size:1.6rem;line-height:1;cursor:pointer}
+
+/* ===== Motion ===== */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.reveal.visible{opacity:1;transform:none}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ===== Responsive ===== */
+@media(min-width:431px){.cover{min-height:min(100svh,860px)}}
+@media(max-width:430px){.wrap{max-width:100%;box-shadow:none}body{background:var(--paper)}.section{padding:60px 22px}}
+
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body class="locked">
+<main class="wrap" id="app">
+  <section class="cover" id="cover">
+    <img class="cover-photo" id="coverPhoto" alt="" hidden>
+    <div class="cover-inner">
+      <div class="crescent" aria-hidden="true">☾ ✦</div>
+      <p class="bismillah">Bismillahirrahmanirrahim</p>
+      <p class="eyebrow">Undangan</p>
+      <h1>Walimatul Khitan</h1>
+      <div class="ornament" aria-hidden="true">✦</div>
+      <p class="cover-child" id="coverChild"></p>
+      <p class="guest">Kepada Yth.<strong id="guestName">Bapak/Ibu/Saudara/i</strong></p>
+      <button class="btn" id="openInvite" type="button">Buka Undangan <span aria-hidden="true">↓</span></button>
+    </div>
+  </section>
+  <section class="section reveal" id="opening">
+    <img class="section-photo" id="openingPhoto" alt="" hidden>
+    <p class="eyebrow">Dengan rahmat Allah SWT</p>
+    <h2>Assalamu'alaikum Wr. Wb.</h2>
+    <div class="ornament" aria-hidden="true">۞</div>
+    <p class="text">Dengan penuh rasa syukur, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk menghadiri tasyakuran khitan putra kami.</p>
+    <div class="countdown" id="countdown"><p class="eyebrow">Menuju acara</p>
+      <div class="timer"><div><b id="days">00</b><small>Hari</small></div><div><b id="hours">00</b><small>Jam</small></div><div><b id="minutes">00</b><small>Menit</small></div><div><b id="seconds">00</b><small>Detik</small></div></div>
+    </div>
+  </section>
+  <section class="section reveal" id="profile">
+    <p class="eyebrow">Putra kami</p>
+    <div class="photo-frame"><img id="childPhoto" alt="Foto anak" loading="lazy"></div>
+    <div class="profile-names">
+      <h2 class="child-name" id="childName"></h2>
+      <p id="childOrder" class="muted"></p>
+      <p class="parents" id="familyNames"></p>
+    </div>
+  </section>
+  <section class="section reveal" id="prayer">
+    <p class="eyebrow">Doa dan harapan</p><h2>Semoga menjadi anak saleh</h2>
+    <div class="dua-card" id="prayerText"></div>
+  </section>
+  <section class="section reveal" id="eventSection">
+    <p class="eyebrow">Mohon kehadiran</p><h2>Detail Acara</h2>
+    <div class="events" id="events"></div>
+    <a class="btn light" id="calendarLink" target="_blank" rel="noopener" hidden>Tambahkan ke kalender</a>
+  </section>
+  <section class="section reveal" id="gallerySection">
+    <p class="eyebrow">Kenangan</p><h2>Galeri</h2>
+    <div class="gallery" id="gallery"></div>
+  </section>
+  <section class="section reveal" id="rsvpSection">
+    <p class="eyebrow">Mohon konfirmasi</p><h2>RSVP &amp; Doa</h2>
+    <p class="muted">Konfirmasi kehadiran dan sampaikan doa terbaik untuk putra kami.</p>
+    <form class="form" id="rsvpForm">
+      <div class="field"><label for="rsvpName">Nama</label><input id="rsvpName" name="nama" maxlength="60" required autocomplete="name"></div>
+      <div class="field"><label for="attendance">Konfirmasi kehadiran</label><select id="attendance" name="hadir" required><option value="hadir">Insya Allah hadir</option><option value="tidak">Mohon maaf, tidak dapat hadir</option><option value="ragu">Belum dapat memastikan</option></select></div>
+      <div class="field"><label for="guestCount">Jumlah tamu</label><input id="guestCount" name="jumlah" type="number" min="1" max="20" value="1" required></div>
+      <div class="field"><label for="wish">Pesan atau doa (opsional)</label><textarea id="wish" name="isi" maxlength="300" placeholder="Tuliskan doa terbaik Anda..."></textarea></div>
+      <button class="btn" id="sendRsvp" type="submit">Kirim Konfirmasi</button>
+      <p class="status" id="formStatus" role="status" aria-live="polite"></p>
+    </form>
+  </section>
+  <section class="section reveal" id="wishesSection">
+    <p class="eyebrow">Terima kasih atas doa Anda</p><h2>Ucapan &amp; Doa</h2>
+    <div class="wishes" id="wishes"><p class="muted">Memuat ucapan...</p></div>
+  </section>
+  <section class="section reveal" id="extrasSection">
+    <div id="giftSection" class="hidden"><p class="eyebrow">Tanda kasih</p><h2>Informasi Hadiah</h2><p id="giftAddress" class="muted"></p><div class="gift-list" id="giftList"></div></div>
+    <div id="contactSection" class="hidden"><p class="eyebrow">Hubungi keluarga</p><h2>Informasi Kontak</h2><p id="contactText" class="text"></p></div>
+    <div id="inviteSection" class="hidden"><p class="eyebrow">Keluarga &amp; kerabat</p><h2>Turut Mengundang</h2><ul class="invite-list" id="inviteList"></ul></div>
+  </section>
+  <section class="section closing reveal" id="closing">
+    <img class="closing-photo" id="closingPhoto" alt="" hidden>
+    <p class="eyebrow">Jazakumullahu khairan</p><h2>Terima Kasih</h2>
+    <div class="ornament" aria-hidden="true">۞</div>
+    <p class="text">Merupakan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan mendoakan putra kami. Mohon maaf apabila terdapat kekurangan dalam penyelenggaraan acara.</p>
+    <p class="closing-name" id="closingChild"></p><p id="closingParents"></p>
+    <p style="margin-top:28px;font-family:var(--serif);font-size:.95rem">Wassalamu'alaikum Warahmatullahi Wabarakatuh</p>
+  </section>
+  <footer class="foot">Undangan Walimatul Khitan</footer>
+</main>
+<button class="music" id="musicButton" type="button" aria-label="Putar atau jeda musik" title="Putar atau jeda musik"><span>♫</span></button>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Pratinjau foto"><button type="button" aria-label="Tutup">&times;</button><img alt="Foto galeri"></div>
+<script src="data/data-undangan.js"></script>
+<script src="js/fb.js"></script>
+<script>
+(function(){
+'use strict';
+var D=window.DATA||{},FB=window.FB||{},$=function(s,r){return (r||document).querySelector(s)};
+var child=D.anak||{},photo=D.foto||{},settings={},invitee=new URLSearchParams(location.search).get('to')||'',events=Array.isArray(D.acara)?D.acara.slice():[];
+function esc(v){return String(v==null?'':v).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+function setText(id,value){var x=$('#'+id);if(x)x.textContent=value||''}
+function defaultSettings(){return{ucapanPublik:D.ucapanPublik!==false,hadiahTampil:!!(D.pengaturanTampilan&&D.pengaturanTampilan.hadiah),kontakTampil:!!(D.informasiKontak&&D.pengaturanTampilan&&D.pengaturanTampilan.kontak),informasiTampil:!!(D.informasiTambahan&&D.pengaturanTampilan&&D.pengaturanTampilan.informasiTambahan),profilTampil:!D.pengaturanTampilan||D.pengaturanTampilan.profil!==false,doaTampil:!D.pengaturanTampilan||D.pengaturanTampilan.doa!==false,acaraTampil:!D.pengaturanTampilan||D.pengaturanTampilan.acara!==false,galeriTampil:!D.pengaturanTampilan||D.pengaturanTampilan.galeri!==false,rsvpTampil:!D.pengaturanTampilan||D.pengaturanTampilan.rsvp!==false,penutupTampil:!D.pengaturanTampilan||D.pengaturanTampilan.penutup!==false,urutanKeluarga:'anak-orangtua'}}
+function acaraData(){var a=events[0]||{};return Object.assign({},a,{nama:settings.acaraNama||a.nama||'Walimatul Khitan',tanggal:settings.acaraTanggal||a.tanggal||'',jamMulai:settings.acaraMulai||a.jamMulai||'',jamSelesai:settings.acaraSelesai||a.jamSelesai||'',tempat:settings.acaraTempat||a.tempat||'',alamat:settings.acaraAlamat||a.alamat||'',maps:settings.acaraMaps||a.maps||''})}
+function tgl(v,short){if(!v)return'';var p=v.split('-');if(p.length!==3)return v;var d=new Date(+p[0],+p[1]-1,+p[2]);return new Intl.DateTimeFormat('id-ID',{weekday:short?'short':'long',day:'numeric',month:short?'short':'long',year:'numeric'}).format(d)}
+function renderProfile(){var name=child.nama||child.panggilan||'Putra kami',family='';if(child.ayah&&child.ibu)family='Putra dari Bapak '+child.ayah+' dan Ibu '+child.ibu;else if(child.ayah)family='Putra dari Bapak '+child.ayah;else if(child.ibu)family='Putra dari Ibu '+child.ibu;
+setText('coverChild',name);setText('childName',name);setText('closingChild',name);setText('childOrder',child.anakKe?'Anak ke-'+child.anakKe:'');setText('familyNames',family);setText('closingParents',[child.ayah&&('Bapak '+child.ayah),child.ibu&&('Ibu '+child.ibu)].filter(Boolean).join(' & '));
+var cp=$('#childPhoto');if(photo.anak){cp.src=photo.anak}else{$('.photo-frame').classList.add('empty');cp.removeAttribute('alt');cp.hidden=true}
+var cover=$('#coverPhoto');if(photo.sampul){cover.src=photo.sampul;cover.hidden=false}
+var op=$('#openingPhoto');if(photo.latar){op.src=photo.latar;op.hidden=false;$('#opening').classList.add('has-photo')}
+var closingPhoto=$('#closingPhoto');if(photo.penutup){closingPhoto.src=photo.penutup;closingPhoto.hidden=false}
+var guest=invitee.trim().replace(/\s+/g,' ').slice(0,60);setText('guestName',guest||'Bapak/Ibu/Saudara/i');$('#rsvpName').value=guest;
+}
+function eventMarkup(a,i){var time=[a.jamMulai,a.jamSelesai].filter(Boolean).join(' – ').replace(/:/g,'.')+(a.jamMulai?' '+(D.zona||'WIB'):''),map=/^https:\/\//i.test(a.maps||'');return '<article class="event"><h3>'+esc(a.nama||('Sesi '+(i+1)))+'</h3><p class="ev-date">'+esc(tgl(a.tanggal,false))+'</p>'+(time?'<p class="ev-time">'+esc(time)+'</p>':'')+'<span class="ev-line" aria-hidden="true"></span><p class="ev-place">'+esc(a.tempat||'')+'</p>'+(a.alamat?'<p class="ev-addr">'+esc(a.alamat)+'</p>':'')+(map?'<a class="ev-link" href="'+esc(a.maps)+'" target="_blank" rel="noopener">Buka Google Maps →</a>':'')+'</article>'}
+function drawEvents(){var a=acaraData();if(events.length)events[0]=a;var list=events.length?events:(a.tanggal||a.tempat||a.alamat?[a]:[]);$('#events').innerHTML=list.map(eventMarkup).join('');if(!list.length)$('#events').innerHTML='<p class="muted">Informasi acara akan segera diperbarui.</p>';
+var cl=$('#calendarLink');if(a.tanggal&&a.jamMulai){var zone={WIB:'+07:00',WITA:'+08:00',WIT:'+09:00'}[D.zona]||'+07:00',start=new Date(a.tanggal+'T'+a.jamMulai+':00'+zone),end=new Date(a.tanggal+'T'+(a.jamSelesai||a.jamMulai)+':00'+zone);if(a.jamSelesai&&end<=start)end=new Date(+end+86400000);function stamp(d){return d.toISOString().replace(/[-:]|\.\d{3}/g,'')}cl.href='https://calendar.google.com/calendar/render?action=TEMPLATE&text='+encodeURIComponent(a.nama||'Walimatul Khitan '+(child.panggilan||child.nama||''))+'&dates='+stamp(start)+'/'+stamp(end)+'&location='+encodeURIComponent(a.tempat||'')+'&details='+encodeURIComponent(a.alamat||'');cl.hidden=false}}
+function startCountdown(){var a=acaraData();if(!a.tanggal||!a.jamMulai){$('#countdown').classList.add('hidden');return}var off={WIB:'+07:00',WITA:'+08:00',WIT:'+09:00'}[D.zona]||'+07:00',target=new Date(a.tanggal+'T'+a.jamMulai+':00'+off).getTime();if(!isFinite(target)){ $('#countdown').classList.add('hidden');return}
+function tick(){var left=target-Date.now();if(left<=0){$('#countdown').innerHTML='<p class="muted">Acara telah dimulai. Semoga berjalan dengan lancar.</p>';clearInterval(timer);return}var values=[Math.floor(left/86400000),Math.floor(left/3600000)%24,Math.floor(left/60000)%60,Math.floor(left/1000)%60];['days','hours','minutes','seconds'].forEach(function(id,i){setText(id,String(values[i]).padStart(2,'0'))})}
+tick();var timer=setInterval(tick,1000)}
+function renderGallery(){var g=Array.isArray(D.galeri)?D.galeri.filter(Boolean):[];$('#gallery').innerHTML=g.map(function(src,i){return'<figure class="g-item"><img src="'+esc(src)+'" alt="Foto kenangan '+(i+1)+'" loading="lazy" data-index="'+i+'"></figure>'}).join('');if(!g.length){$('#gallery').innerHTML='<p class="muted">Galeri foto belum ditambahkan.</p>'}}
+function renderExtras(){var gifts=Array.isArray(D.hadiah)?D.hadiah:[],showGift=settings.hadiahTampil&&!!(gifts.length||D.alamatKado);$('#giftSection').classList.toggle('hidden',!showGift);setText('giftAddress',D.alamatKado?'Alamat pengiriman: '+D.alamatKado:'');$('#giftList').innerHTML=gifts.map(function(g){return'<div class="gift"><div><b>'+esc(g.bank||'')+'</b><span>'+esc(g.nomor||'')+'</span><small>a.n. '+esc(g.atasNama||'')+'</small></div><button class="copy" type="button" data-copy="'+esc(g.nomor||'')+'">Salin</button></div>'}).join('');
+var showContact=settings.kontakTampil&&!!D.informasiKontak;$('#contactSection').classList.toggle('hidden',!showContact);setText('contactText',D.informasiKontak||'');var inv=Array.isArray(D.turutMengundang)?D.turutMengundang.filter(Boolean):[],showInfo=inv.length>0;$('#inviteSection').classList.toggle('hidden',!showInfo);$('#inviteList').innerHTML=inv.map(function(n){return'<li>'+esc(n)+'</li>'}).join('');$('#extrasSection').classList.toggle('hidden',!showGift&&!showContact&&!showInfo)}
+function applySettings(){settings=Object.assign(defaultSettings(),settings);[['profile','profilTampil'],['prayer','doaTampil'],['eventSection','acaraTampil'],['gallerySection','galeriTampil'],['rsvpSection','rsvpTampil'],['closing','penutupTampil']].forEach(function(x){$('#'+x[0]).classList.toggle('hidden',settings[x[1]]===false)});$('#wishesSection').classList.toggle('hidden',settings.ucapanPublik===false);var profile=$('.profile-names');if(settings.urutanKeluarga==='orangtua-anak'){profile.appendChild($('#familyNames'));profile.appendChild($('#childName'));profile.appendChild($('#childOrder'))}else{profile.appendChild($('#childName'));profile.appendChild($('#childOrder'));profile.appendChild($('#familyNames'))}renderExtras();drawEvents();startCountdown()}
+function renderWishes(items){var box=$('#wishes');if(settings.ucapanPublik===false){box.innerHTML='<p class="muted">Ucapan publik dinonaktifkan oleh keluarga.</p>';return}if(!items.length){box.innerHTML='<p class="muted">Belum ada ucapan. Jadilah yang pertama menyampaikan doa.</p>';return}box.innerHTML=items.map(function(u){var time=u.waktu instanceof Date?u.waktu:new Date(u.waktu||0);return'<article class="wish"><strong>'+esc(u.nama)+'</strong><span class="muted"> · '+esc({hadir:'Hadir',tidak:'Tidak hadir',ragu:'Belum pasti'}[u.hadir]||'')+'</span><p>'+esc(u.isi||'').replace(/\n/g,'<br>')+'</p><small>'+((time&&isFinite(+time))?time.toLocaleString('id-ID'):'')+'</small></article>'}).join('')}
+async function loadWishes(){if(settings.ucapanPublik===false){renderWishes([]);return}if(!FB.aktif){$('#wishesSection').classList.add('hidden');return}try{var rows=await FB.daftarRSVP(false);renderWishes(rows)}catch(err){$('#wishes').innerHTML='<p class="status error">Ucapan belum dapat dimuat. Silakan coba muat ulang halaman.</p>';console.error('Gagal memuat ucapan:',err)}}
+function applyEventOverrides(){var a=acaraData();if(events.length)events[0]=a}
+async function initialize(){renderProfile();setText('prayerText',D.doa||'');renderGallery();applyEventOverrides();
+if(FB.aktif){try{var remote=await FB.pengaturan();if(remote)settings=remote}catch(err){console.error('Gagal memuat pengaturan undangan:',err);$('#wishes').innerHTML='<p class="status error">Pengaturan undangan tidak dapat dimuat. Sebagian tampilan mungkin belum terbaru.</p>'}}
+applySettings();await loadWishes()}
+$('#openInvite').addEventListener('click',function(){document.body.classList.remove('locked');$('#opening').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});if(audio){$('#musicButton').classList.add('show');audio.play().then(function(){$('#musicButton').classList.add('playing')}).catch(function(){})}});
+var audio=null;try{if(D.musik && /\.(mp3|wav|ogg|m4a)(\?.*)?$/i.test(D.musik)){audio=new Audio(D.musik);audio.loop=true;audio.addEventListener('error',function(){audio=null;$('#musicButton').classList.remove('playing')})}}catch(_){audio=null}
+$('#musicButton').addEventListener('click',function(){if(!audio)return;if(audio.paused){audio.play().then(function(){$('#musicButton').classList.add('playing')}).catch(function(){})}else{audio.pause();$('#musicButton').classList.remove('playing')}});
+$('#rsvpForm').addEventListener('submit',async function(ev){ev.preventDefault();var formEl=ev.currentTarget,status=$('#formStatus'),button=$('#sendRsvp'),form=new FormData(formEl),nama=String(form.get('nama')||'').trim(),isi=String(form.get('isi')||'').trim(),jumlah=Number(form.get('jumlah')),hadir=String(form.get('hadir')||'');status.className='status';status.textContent='';
+if(!nama||nama.length>60||isi.length>300||!Number.isInteger(jumlah)||jumlah<1||jumlah>20){status.classList.add('error');status.textContent='Periksa kembali nama, jumlah tamu, dan panjang doa.';return}
+if(!FB.aktif){status.classList.add('error');status.textContent='Konfirmasi belum dapat disimpan karena Firebase belum terhubung.';return}
+button.disabled=true;button.textContent='Mengirim...';try{await FB.kirimRSVP({nama:nama,isi:isi,hadir:hadir,jumlah:jumlah});status.classList.add('success');status.textContent='Terima kasih. Konfirmasi dan doa Anda telah tersimpan.';formEl.reset();$('#rsvpName').value=invitee.trim();$('#guestCount').value='1';await loadWishes()}catch(err){status.classList.add('error');status.textContent='Konfirmasi gagal disimpan. Silakan coba kembali.';console.error('Gagal menyimpan RSVP:',err)}finally{button.disabled=false;button.textContent='Kirim Konfirmasi'}});
+$('#gallery').addEventListener('click',function(ev){var img=ev.target.closest('img[data-index]');if(!img)return;var lb=$('#lightbox');lb.querySelector('img').src=img.src;lb.classList.add('open')});$('#lightbox button').addEventListener('click',function(){$('#lightbox').classList.remove('open')});$('#lightbox').addEventListener('click',function(ev){if(ev.target===ev.currentTarget)ev.currentTarget.classList.remove('open')});document.addEventListener('keydown',function(ev){if(ev.key==='Escape')$('#lightbox').classList.remove('open')});
+$('#app').addEventListener('click',function(ev){var b=ev.target.closest('[data-copy]');if(!b)return;var value=b.getAttribute('data-copy');if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(value).then(function(){b.textContent='Tersalin'}).catch(function(){window.prompt('Salin nomor ini',value)});else window.prompt('Salin nomor ini',value)});
+var revealEls=document.querySelectorAll('.reveal');revealEls.forEach(function(el,index){el.style.transitionDelay=index*90+'ms'});
+var reveal='IntersectionObserver'in window?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');reveal.unobserve(e.target)}})},{threshold:.08}):null;revealEls.forEach(function(x){if(reveal)reveal.observe(x);else x.classList.add('visible')});
+var title='Undangan Walimatul Khitan'+(child.nama?' - '+child.nama:'');document.title=title;var og=$('meta[property="og:title"]');if(og)og.content=title;
+initialize();
+})();
+</script>
+</body>
+</html>

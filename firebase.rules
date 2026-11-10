@@ -1,0 +1,70 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Admin = pengguna Firebase Authentication dengan email  KODE@admin.undangan
+    function admin(kode) {
+      return request.auth != null && request.auth.token.email == kode + '@admin.undangan';
+    }
+
+    match /undangan/{kode} {
+
+      // Ucapan tamu: siapa pun boleh MENGIRIM (maks 300 huruf); hanya admin boleh menghapus.
+      match /ucapan/{id} {
+        allow create: if request.resource.data.keys().hasOnly(['nama', 'isi', 'hadir', 'waktu'])
+          && request.resource.data.keys().hasAll(['nama', 'isi', 'hadir', 'waktu'])
+          && request.resource.data.nama is string
+          && request.resource.data.nama.size() > 0
+          && request.resource.data.nama.size() <= 40
+          && request.resource.data.isi is string
+          && request.resource.data.isi.size() > 0
+          && request.resource.data.isi.size() <= 300
+          && request.resource.data.hadir in ['hadir', 'tidak', 'ragu']
+          && request.resource.data.waktu is timestamp
+          && request.resource.data.waktu > request.time - duration.value(10, 'm')
+          && request.resource.data.waktu < request.time + duration.value(10, 'm');
+
+        // Dibaca tamu hanya jika "ucapanPublik" menyala (default: menyala)
+        allow read: if admin(kode)
+          || !exists(/databases/$(database)/documents/undangan/$(kode)/pengaturan/utama)
+          || get(/databases/$(database)/documents/undangan/$(kode)/pengaturan/utama).data.ucapanPublik == true;
+
+        allow delete: if admin(kode);
+      }
+
+      // RSVP dan doa disimpan sebagai satu catatan agar tidak terjadi data parsial.
+      match /rsvp/{id} {
+        allow create: if request.resource.data.keys().hasOnly(['nama', 'isi', 'hadir', 'jumlah', 'waktu'])
+          && request.resource.data.keys().hasAll(['nama', 'isi', 'hadir', 'jumlah', 'waktu'])
+          && request.resource.data.nama is string
+          && request.resource.data.nama.size() > 0
+          && request.resource.data.nama.size() <= 60
+          && request.resource.data.isi is string
+          && request.resource.data.isi.size() <= 300
+          && request.resource.data.hadir in ['hadir', 'tidak', 'ragu']
+          && request.resource.data.jumlah is int
+          && request.resource.data.jumlah >= 1
+          && request.resource.data.jumlah <= 20
+          && request.resource.data.waktu is timestamp
+          && request.resource.data.waktu > request.time - duration.value(10, 'm')
+          && request.resource.data.waktu < request.time + duration.value(10, 'm');
+
+        allow read: if admin(kode)
+          || !exists(/databases/$(database)/documents/undangan/$(kode)/pengaturan/utama)
+          || get(/databases/$(database)/documents/undangan/$(kode)/pengaturan/utama).data.ucapanPublik == true;
+        allow delete: if admin(kode);
+      }
+
+      // Daftar tamu: hanya admin
+      match /tamu/{id} {
+        allow read, write: if admin(kode);
+      }
+
+      // Pengaturan: dibaca semua orang, diubah admin
+      match /pengaturan/{id} {
+        allow read: if true;
+        allow write: if admin(kode);
+      }
+    }
+  }
+}

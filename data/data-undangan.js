@@ -1,10 +1,10 @@
 window.DATA = {
   "kategori": "khitan",
   "kode": "khitan-v1",
-  "siteUrl": "",
+  "siteUrl": "https://ddarkan03-ux.github.io/Khitan-V3a/",
   "firebase": {
-    "apiKey": "",
-    "projectId": ""
+    "apiKey": "AIzaSyBEA92p-xAjSyvDTWT09-zsuEDyjZg2dZw",
+    "projectId": "undangan-saya"
   },
   "model": "Undangan Khitan Digital - Ivory & Sage",
   "pemesan": {

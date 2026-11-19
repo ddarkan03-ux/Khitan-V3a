@@ -17,7 +17,7 @@ window.DATA = {
     "latar": "foto/latar-utama.jpg",
     "anak": "foto/bingkai.jpg",
     "penutup": "foto/penutup.jpg",
-    "pratinjau": "foto/og.jpg"
+    "pratinjau": "foto/sampul.jpg"
   },
   "anak": {
     "nama": "Muhammad Zayyan Al-Farizi (Zayyan)",

@@ -1,0 +1,50 @@
+{
+  "nama": "Undangan Khitan Digital - Ivory & Sage",
+  "kategori": "khitan",
+  "foto": {
+    "sampul": "foto/sampul.jpg",
+    "latar": "foto/latar-utama.jpg",
+    "latarUtama": "foto/latar-utama.jpg",
+    "anak": "foto/bingkai.jpg",
+    "bingkai": "foto/bingkai.jpg",
+    "penutup": "foto/penutup.jpg"
+  },
+  "galeri": [
+    "foto/galeri-1.jpg",
+    "foto/galeri-2.jpg",
+    "foto/galeri-3.jpg",
+    "foto/galeri-5.jpg"
+  ],
+  "musik": "musik/musik.mp3",
+  "doa": "Ya Allah, jadikanlah ia anak yang saleh, sehat, berakhlak mulia, mencintai ilmu, dan senantiasa berada dalam perlindungan-Mu. Limpahkan keberkahan dan kebaikan dalam setiap langkahnya.",
+  "informasiTambahan": "Sehubungan dengan adanya acara khitan ini, kami sangat menghargai kehadiran dan doa restu Bapak/Ibu/Saudara/i. Jika berkenan, doa dan dukungan Anda sangat berarti bagi kami. Terima kasih atas perhatian serta kebersamaannya.",
+  "pengaturanTampilan": {
+    "profil": true,
+    "doa": true,
+    "acara": true,
+    "galeri": true,
+    "rsvp": true,
+    "hadiah": false,
+    "kontak": false,
+    "informasiTambahan": false,
+    "penutup": true
+  },
+  "panelAdmin": {
+    "profil": false,
+    "doa": false,
+    "acara": false,
+    "galeri": false,
+    "rsvp": true,
+    "kontak": true,
+    "informasiTambahan": false,
+    "penutup": false,
+    "ucapanPublik": true,
+    "hadiah": true,
+    "pesanWa": true,
+    "pratinjauLink": true,
+    "informasiAcara": false,
+    "urutanKeluarga": true
+  },
+  "logoBank": true,
+  "pihakKlien": "pria"
+}

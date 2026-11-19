@@ -39,11 +39,10 @@ body{background:linear-gradient(180deg,#f3efe4,#ece8da);min-height:100vh;-webkit
       <div class="stat"><b id="statAbsent">0</b><span>RSVP tidak hadir</span></div>
       <div class="stat"><b id="statWishes">0</b><span>Ucapan dan doa</span></div>
     </div>
-    <nav class="tabs" aria-label="Navigasi admin">
-      <button type="button" class="on" data-tab="dashboard">Ringkasan</button>
-      <button type="button" data-tab="guests">Tamu</button>
-      <button type="button" data-tab="wishes">Ucapan</button>
-      <button type="button" data-tab="settings">Pengaturan</button>
+    <nav class="tabs" role="tablist" aria-label="Navigasi panel klien">
+      <button type="button" role="tab" class="on" aria-selected="true" data-tab="guests">Tamu</button>
+      <button type="button" role="tab" aria-selected="false" data-tab="wishes">Ucapan</button>
+      <button type="button" role="tab" aria-selected="false" data-tab="settings">Pengaturan</button>
     </nav>
     <section id="panel-dashboard">
       <div class="card"><h2 style="margin:0 0 8px;color:var(--dark);font:600 1.25rem Georgia">Ringkasan Acara</h2><div id="eventSummary" class="meta">Memuat informasi acara...</div></div>
@@ -67,15 +66,15 @@ body{background:linear-gradient(180deg,#f3efe4,#ece8da);min-height:100vh;-webkit
       <div class="card">
         <h2 style="margin:0;color:var(--dark);font:600 1.25rem Georgia">Tampilan Undangan</h2>
         <div class="switch" id="publicWishControl"><span>Tampilkan ucapan kepada publik</span><input type="checkbox" id="showWishes"></div>
-        <div class="switch"><span>Tampilkan profil anak</span><input type="checkbox" id="showProfile"></div>
-        <div class="switch"><span>Tampilkan doa</span><input type="checkbox" id="showPrayer"></div>
-        <div class="switch"><span>Tampilkan detail acara</span><input type="checkbox" id="showEvent"></div>
-        <div class="switch"><span>Tampilkan galeri foto</span><input type="checkbox" id="showGallery"></div>
-        <div class="switch"><span>Tampilkan formulir RSVP</span><input type="checkbox" id="showRsvp"></div>
+        <div class="switch" id="ctl_profil"><span>Tampilkan profil anak</span><input type="checkbox" id="showProfile"></div>
+        <div class="switch" id="ctl_doa"><span>Tampilkan doa</span><input type="checkbox" id="showPrayer"></div>
+        <div class="switch" id="ctl_acara"><span>Tampilkan detail acara</span><input type="checkbox" id="showEvent"></div>
+        <div class="switch" id="ctl_galeri"><span>Tampilkan galeri foto</span><input type="checkbox" id="showGallery"></div>
+        <div class="switch" id="ctl_rsvp"><span>Tampilkan formulir RSVP</span><input type="checkbox" id="showRsvp"></div>
         <div class="switch" id="giftControl"><span>Tampilkan informasi hadiah</span><input type="checkbox" id="showGift"></div>
-        <div class="switch"><span>Tampilkan kontak keluarga</span><input type="checkbox" id="showContact"></div>
-        <div class="switch"><span>Tampilkan informasi tambahan</span><input type="checkbox" id="showExtra"></div>
-        <div class="switch"><span>Tampilkan bagian penutup</span><input type="checkbox" id="showClosing"></div>
+        <div class="switch" id="ctl_kontak"><span>Tampilkan kontak keluarga</span><input type="checkbox" id="showContact"></div>
+        <div class="switch" id="ctl_informasiTambahan"><span>Tampilkan informasi tambahan</span><input type="checkbox" id="showExtra"></div>
+        <div class="switch" id="ctl_penutup"><span>Tampilkan bagian penutup</span><input type="checkbox" id="showClosing"></div>
         <div id="familyOrderControl"><label class="label" for="familyOrder">Urutan informasi keluarga</label>
         <select id="familyOrder" class="input"><option value="anak-orangtua">Nama anak, lalu orang tua</option><option value="orangtua-anak">Nama orang tua, lalu anak</option></select></div>
       </div>
@@ -137,14 +136,23 @@ function render(){
   updatePreview()
 }
 function updatePreview(){var title='Undangan Walimatul Khitan'+(child.nama?' · '+child.nama:'');$('#previewTitle').textContent=title;var a=currentEvent();$('#previewDescription').textContent=[dateText(a.tanggal),a.tempat].filter(Boolean).join(' · ')||'Informasi acara akan tampil di sini.'}
-function fillSettings(){var s=S.settings;[['showWishes','ucapanPublik'],['showProfile','profilTampil'],['showPrayer','doaTampil'],['showEvent','acaraTampil'],['showGallery','galeriTampil'],['showRsvp','rsvpTampil'],['showGift','hadiahTampil'],['showContact','kontakTampil'],['showExtra','informasiTampil'],['showClosing','penutupTampil']].forEach(function(pair){$('#'+pair[0]).checked=s[pair[1]]!==false});$('#familyOrder').value=s.urutanKeluarga||'anak-orangtua';$('#whatsappTemplate').value=s.pesanWa||DEFAULT_MESSAGE;$('#eventName').value=s.acaraNama||'';$('#eventDate').value=s.acaraTanggal||'';$('#eventStart').value=s.acaraMulai||'';$('#eventEnd').value=s.acaraSelesai||'';$('#eventPlace').value=s.acaraTempat||'';$('#eventAddress').value=s.acaraAlamat||'';$('#eventMaps').value=s.acaraMaps||'';var P=D.panelAdmin||{};$('#publicWishControl').classList.toggle('hide',P.ucapanPublik===false);$('#giftControl').classList.toggle('hide',P.hadiah===false);$('#eventSettings').classList.toggle('hide',P.informasiAcara===false);$('#familyOrderControl').classList.toggle('hide',P.urutanKeluarga===false);$('#messageSettings').classList.toggle('hide',P.pesanWa===false);$('#linkPreview').classList.toggle('hide',P.pratinjauLink===false);updatePreview()}
+function fillSettings(){var s=S.settings;[['showWishes','ucapanPublik'],['showProfile','profilTampil'],['showPrayer','doaTampil'],['showEvent','acaraTampil'],['showGallery','galeriTampil'],['showRsvp','rsvpTampil'],['showGift','hadiahTampil'],['showContact','kontakTampil'],['showExtra','informasiTampil'],['showClosing','penutupTampil']].forEach(function(pair){$('#'+pair[0]).checked=s[pair[1]]!==false});$('#familyOrder').value=s.urutanKeluarga||'anak-orangtua';$('#whatsappTemplate').value=s.pesanWa||DEFAULT_MESSAGE;$('#eventName').value=s.acaraNama||'';$('#eventDate').value=s.acaraTanggal||'';$('#eventStart').value=s.acaraMulai||'';$('#eventEnd').value=s.acaraSelesai||'';$('#eventPlace').value=s.acaraTempat||'';$('#eventAddress').value=s.acaraAlamat||'';$('#eventMaps').value=s.acaraMaps||'';var P=D.panelAdmin||{};$('#publicWishControl').classList.toggle('hide',P.ucapanPublik===false);$('#giftControl').classList.toggle('hide',P.hadiah===false);[['profil','profil'],['doa','doa'],['acara','acara'],['galeri','galeri'],['rsvp','rsvp'],['kontak','kontak'],['informasiTambahan','informasiTambahan'],['penutup','penutup']].forEach(function(x){$('#ctl_'+x[1]).classList.toggle('hide',P[x[0]]===false)});$('#eventSettings').classList.toggle('hide',P.informasiAcara===false);$('#familyOrderControl').classList.toggle('hide',P.urutanKeluarga===false);$('#messageSettings').classList.toggle('hide',P.pesanWa===false);$('#linkPreview').classList.toggle('hide',P.pratinjauLink===false);updatePreview()}
 function fail(err){if(err&&(err.status===401||err.status===403)){FB.logout();show('login');$('#loginMessage').textContent='Sesi tidak valid. Silakan masuk kembali.';return}toast('Gagal: '+(err&&err.message||'permintaan tidak berhasil'));console.error(err)}
 async function load(){show('app');try{var results=await Promise.all([FB.pengaturan(),FB.tamuDaftar(),FB.daftarRSVP(true)]);S.settings=Object.assign(defaults(),results[0]||{});delete S.settings.id;S.guests=results[1];S.rsvp=results[2];fillSettings();render()}catch(err){fail(err)}}
 $('#invitationTitle').textContent=(child.nama||child.panggilan||'Konfigurasi anak belum diisi')+' · kode '+(D.kode||'');
 if(!FB.aktif){$('#notice').innerHTML='<b>Firebase belum dikonfigurasi.</b><br>Isi apiKey, projectId, dan kode undangan pada <code>data/data-undangan.js</code>.';show('notice')}
 else if(FB.sudahLogin())load();else show('login');
 $('#loginForm').addEventListener('submit',function(ev){ev.preventDefault();var b=$('#loginButton');b.disabled=true;$('#loginMessage').textContent='';FB.login($('#password').value).then(function(){$('#password').value='';return load()}).catch(function(err){$('#loginMessage').textContent=err.pesan||'Tidak dapat masuk. Periksa kata sandi dan konfigurasi Firebase.'}).finally(function(){b.disabled=false})});
-document.querySelectorAll('.tabs [data-tab]').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('.tabs [data-tab]').forEach(function(x){x.classList.toggle('on',x===b)});['dashboard','guests','wishes','settings'].forEach(function(k){$('#panel-'+k).classList.toggle('hide',k!==b.dataset.tab)})})});
+var dashboard=$('#panel-dashboard'),guests=$('#panel-guests');
+if(dashboard&&guests)guests.insertBefore(dashboard,guests.firstChild);
+function pilihTab(tab){
+  document.querySelectorAll('.tabs [data-tab]').forEach(function(button){var active=button.dataset.tab===tab;button.classList.toggle('on',active);button.setAttribute('aria-selected',active?'true':'false')});
+  if(dashboard)dashboard.classList.toggle('hide',tab!=='guests');
+  if(guests)guests.classList.toggle('hide',tab!=='guests');
+  ['wishes','settings'].forEach(function(name){var panel=$('#panel-'+name);if(panel)panel.classList.toggle('hide',name!==tab)});
+}
+document.querySelectorAll('.tabs [data-tab]').forEach(function(b){b.addEventListener('click',function(){pilihTab(b.dataset.tab)})});
+pilihTab('guests');
 $('#searchGuest').addEventListener('input',render);
 $('#addGuest').addEventListener('click',async function(){var name=$('#guestInput').value.trim(),wa=$('#phoneInput').value.trim();if(!name){toast('Masukkan nama tamu terlebih dahulu.');return}if(name.length>60){toast('Nama maksimal 60 karakter.');return}if(S.guests.some(function(g){return g.nama.toLowerCase()===name.toLowerCase()})){toast('Tamu tersebut sudah tercatat.');return}var b=$('#addGuest');b.disabled=true;try{var g=await FB.tamuTambah({nama:name,wa:wa});S.guests.push(g);$('#guestInput').value='';$('#phoneInput').value='';render();toast('Tamu berhasil ditambahkan.')}catch(err){fail(err)}finally{b.disabled=false}});
 $('#toggleBulk').addEventListener('click',function(){$('#bulkBox').classList.toggle('hide')});

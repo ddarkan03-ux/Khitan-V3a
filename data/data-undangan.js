@@ -1,6 +1,6 @@
 window.DATA = {
   "kategori": "khitan",
-  "kode": "khitan-v1",
+  "kode": "khitan-v3a",
   "siteUrl": "https://ddarkan03-ux.github.io/Khitan-V3a/",
   "firebase": {
     "apiKey": "AIzaSyBEA92p-xAjSyvDTWT09-zsuEDyjZg2dZw",
@@ -61,6 +61,14 @@ window.DATA = {
   "informasiKontak": "Bapak Ahmad Syahroni: +62 812-3456-7890\nIbu Siti Aisyah: +62 812-2233-4455",
   "informasiTambahan": "Sehubungan dengan adanya acara khitan ini, kami sangat menghargai kehadiran dan doa restu Bapak/Ibu/Saudara/i. Jika berkenan, doa dan dukungan Anda sangat berarti bagi kami. Terima kasih atas perhatian serta kebersamaannya.",
   "panelAdmin": {
+    "profil": false,
+    "doa": false,
+    "acara": false,
+    "galeri": false,
+    "rsvp": true,
+    "kontak": true,
+    "informasiTambahan": false,
+    "penutup": false,
     "ucapanPublik": true,
     "hadiah": true,
     "pesanWa": true,

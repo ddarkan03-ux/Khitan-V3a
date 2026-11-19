@@ -81,13 +81,13 @@ def buat_og(d, nama, tanggal):
 def main():
     d = baca_data()
     anak = d.get('anak', {})
-    nama = anak.get('nama') or anak.get('panggilan') or ''
+    nama = anak.get('panggilan') or anak.get('nama') or ''
     ev = (d.get('acara') or [{}])[0]
     tanggal = tgl(ev['tanggal']) if ev.get('tanggal') else ''
-    judul = 'Undangan Walimatul Khitan' + (' - %s' % nama if nama else '')
-    desk = 'Dengan penuh syukur, kami mengundang Anda ke acara walimatul khitan'
+    judul = 'Undangan Walimatul Khitan' + (' %s' % nama if nama else '')
+    desk = 'Kami mengundang Anda ke Walimatul Khitan'
     if nama:
-        desk += ' putra kami, %s' % nama
+        desk += ' %s' % nama
     if tanggal:
         desk += ' - %s' % tanggal
     if ev.get('tempat'):
